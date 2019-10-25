@@ -7,6 +7,7 @@ import styles from '../styles';
 class AppbarNavigator extends React.Component {
 
     render() {
+        const { user, isAuth, logout } = this.props
         return <Appbar style={styles.appbar}>
             <div style={styles.navL}>
                 <Link to={"/"}>
@@ -14,7 +15,7 @@ class AppbarNavigator extends React.Component {
                         <div className="mui--text-button">Home</div>
                     </Button>
                 </Link>
-                <Link to={"/create"}>
+                <Link to={"/add"}>
                     <Button variant="flat" size="large" style={styles.button}>
                         <div className="mui--text-button">Create Question</div>
                     </Button>
@@ -25,13 +26,16 @@ class AppbarNavigator extends React.Component {
                     </Button>
                 </Link>
             </div>
-            <div style={styles.navR}>
-                <div className="mui--text-button">Hello Angel </div>
-                <img src="https://robohash.org/angel" style={styles.avatar} />
-                <Button variant="flat" size="large" style={styles.button}>
-                    <div className="mui--text-button">Log out</div>
-                </Button>
-            </div>
+            {isAuth
+                ? <div style={styles.navR}>
+                    <div className="mui--text-button">Hello {user.name} </div>
+                    <img src={user.avatarURL} style={styles.avatar} alt="avatar" />
+                    <Button variant="flat" size="large" style={styles.button} onClick={logout}>
+                        <div className="mui--text-button">Log out</div>
+                    </Button>
+                </div>
+                : undefined
+            }
         </Appbar>
     }
 }
