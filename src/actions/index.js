@@ -10,17 +10,20 @@ export const fetchQuestions = (questions) => ({
     questions
 })
 
-export const saveQuestion = (question) => ({
+const saveQuestion = (question) => ({
     type: SAVE_QUESTION,
     question
 })
 
-export const saveAnswer = (answer) => ({
+const saveAnswer = (autherUser, qid, answer) => ({
     type: SAVE_ANSWER,
-    answer
+    answer,
 })
 
 export const fetchUsers = (users) => ({
     type: FETCH_USERS,
     users
 })
+
+
+
