@@ -26,5 +26,15 @@ export const typeQuestion = (type, questions, user) => {
             return user.answers[qid] === undefined
         }
     })
-    return keyQuestions.map( qid => questions[qid])
+    return keyQuestions.map(qid => questions[qid])
+}
+
+export const hasAnswered = (question, user) =>
+    user.answers[question.id] !== undefined ? true : false
+
+
+export const sortQuestions = (questions) => {
+    return questions.sort((a, b) => {
+        return a.timestamp > b.timestamp
+    })
 }

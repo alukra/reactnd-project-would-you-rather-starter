@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import Container from 'muicss/lib/react/container';
 import Panel from 'muicss/lib/react/panel';
 import Button from 'muicss/lib/react/button';
-import { findUserQuestion } from '../utils'
+import { findUserQuestion, sortQuestions } from '../utils'
 
 const ListQuestion = ({ users, questions }) => {
     return <Container>
-        {questions.map(question => {
+        {sortQuestions(questions).map(question => {
             const user = findUserQuestion(users, question.id)
             return <Panel key={question.id}>
                 <div style={styles.titlePanel}>
