@@ -9,8 +9,8 @@ const rootReducer = combineReducers({
     user
 })
 
-export const getQuestion = (state) => selectorsFromQuestion.getQuestion(state.question)
-export const getQuestions = (state, id) => selectorsFromQuestion.getQuestion(state.question, id)
+export const getQuestions = (state) => selectorsFromQuestion.getQuestions(state.question)
+export const getQuestion = (state, id) => selectorsFromQuestion.getQuestion(state.question, id)
 export const getUsers = (state) => selectorsFromUser.getUsers(state.user)
 export const getUser = (state, id) => selectorsFromUser.getUser(state.user, id)
 export const getAuthor = (state) => selectorsFromAuth.getAuthor(state.auth)

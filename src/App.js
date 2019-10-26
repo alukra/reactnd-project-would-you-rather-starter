@@ -10,8 +10,7 @@ import {
 } from './reducers';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styles from './styles';
-import PrivateRoute from './components/PrivateRoute'
-//routes
+import PrivateRoute from './components/PrivateRoute';
 import Error404 from './components/404';
 import View from './containers/View';
 import Home from './containers/Home';
@@ -22,7 +21,8 @@ import Login from './containers/Login';
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.fetchUsers()
+    this.props.fetchUsers();
+    this.props.fetchQuestions();
   }
 
   render() {
@@ -47,8 +47,8 @@ class App extends React.Component {
 const mapStateToProps = (state) => ({
   isAuth: getAuthor(state) === undefined ? false : true,
   user: getUser(state, getAuthor(state))
-})
+});
 
-const mapDispatchToProps = ({ fetchQuestions, fetchUsers, logout })
+const mapDispatchToProps = ({ fetchQuestions, fetchUsers, logout });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

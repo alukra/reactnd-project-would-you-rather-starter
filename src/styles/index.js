@@ -17,6 +17,10 @@ export default {
     button: {
         color: "#15a33b"
     },
+    blockButton : {
+        width: "100%",
+        color: "#15a33b"
+    },
     navL: {
         verticalAlign: 'middle',
         display: 'flex'
@@ -32,6 +36,12 @@ export default {
         marginLeft: '10px',
         borderRadius: "50%"
     },
+    avatarList: {
+        width: "128px",
+        height: '128px',
+        backgroundColor: '#3d403e',
+        borderRadius: "50%"
+    },
     panel: {
         maxWidth: '500px',
         margin: 'auto',
@@ -40,6 +50,18 @@ export default {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    gridCard : {
+        display: "grid",
+        gridTemplateColumns: "40% auto",
+        padding: "5px"
+    },
+    gridBlock : {
+        padding: "15px",
+    },
+    cardImage : {
+        margin: "auto",
+        padding: "10px"
     },
     titlePanel: {
         height: "auto",
@@ -52,8 +74,9 @@ export default {
     loginSelectItem: {
         height: "auto",
     },
-    loginImage: {
+    loginImagen: {
         width: '100%',
+        maxWidth: '350px',
         height: 'auto'
     },
     image404 : {

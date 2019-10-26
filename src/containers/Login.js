@@ -4,6 +4,7 @@ import styles from '../styles';
 import { withRouter, Redirect } from "react-router-dom"
 import { login } from '../actions';
 import { getUsers, getAuthor } from '../reducers';
+import wouldYouRather from '../images/wouldyourather.jpg'
 import Panel from 'muicss/lib/react/panel';
 import Button from 'muicss/lib/react/button';
 import Dropdown from 'muicss/lib/react/dropdown';
@@ -37,8 +38,8 @@ class Login extends React.Component {
         return <Panel style={styles.panel} className="mui--text-center">
             <div style={styles.titlePanel}>
                 <div className="mui--text-headline">Welcome to Would you rather app!</div>
-                <img src={"http://placekitten.com/g/400/300"} alt="Would you rather logo" style={styles.loginImagen} />
-                <div className="mui--text-title">Sign in</div>
+                <img src={wouldYouRather} alt="Would you rather logo" style={styles.loginImagen} />
+                <div className="mui--text-title">Sign in to start</div>
             </div>
             <Dropdown label={value ? value : "Select user to sign in"} onSelect={this.handleChange} >
                 {Object.keys(users).map(userId => {
@@ -51,7 +52,7 @@ class Login extends React.Component {
                     </DropdownItem>
                 })}
             </Dropdown>
-            <Button onClick={this.handleClick}>Sign in</Button>
+            <Button style={styles.blockButton} onClick={this.handleClick}>Sign in</Button>
         </Panel>
 
     }

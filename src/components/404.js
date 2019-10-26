@@ -11,7 +11,7 @@ const Error404 = ({ location }) => {
         <img src={errorImage} alt="Error 404 Page not found" style={styles.image404} />
         <div className="mui--text-title">If you find this link, tell me.</div>
         <Link to="/">
-            <Button color="primary">Return to Home</Button>
+            <Button style={styles.blockButton}>Return to Home</Button>
         </Link>
     </Panel>
 }

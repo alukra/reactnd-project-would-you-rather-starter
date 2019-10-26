@@ -1,10 +1,39 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { getUsers, getQuestions, getAuthor } from '../reducers';
+import Tabs from 'muicss/lib/react/tabs';
+import Tab from 'muicss/lib/react/tab';
+import Panel from 'muicss/lib/react/panel';
+import ListQuestion from '../components/ListQuestion';
+import {typeQuestion } from '../utils';
+import styles from '../styles';
 
-class View extends React.Component {
-
-    render(){
-        return <div>Hey home</div>
+class Home extends React.Component {
+    render() {
+        const { users, questions, userId } = this.props
+        return <Panel style={styles.panel} >
+            <Tabs defaultSelectedIndex={0} justified={true}>
+                <Tab label="Unanswered Questions">
+                    <ListQuestion
+                        users={users}
+                        questions={typeQuestion("answered", questions, users[userId])}
+                    />
+                </Tab>
+                <Tab label="Answered Questions">
+                    <ListQuestion
+                        users={users}
+                        questions={typeQuestion("unanswered", questions, users[userId])}
+                    />
+                </Tab>
+            </Tabs>
+        </Panel>
     }
 }
 
-export default View
+const mapStateToProps = (state) => ({
+    users: getUsers(state),
+    questions: getQuestions(state),
+    userId: getAuthor(state)
+})
+
+export default connect(mapStateToProps, undefined)(Home)
