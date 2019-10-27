@@ -5,18 +5,21 @@ import Radio from 'muicss/lib/react/radio';
 import Button from 'muicss/lib/react/button';
 
 class CardQuestion extends React.Component {
-
     state = {
         value: undefined
     }
 
     handleChange = (event) => this.setState({ value: event.target.value });
 
-    handleSubmit = () => this.props.onSubmit(this.state.value);
+    handleSubmit = () => {
+        const { value} = this.state;
+        const { autherUser, question} = this.props;
+        this.props.onSubmit(autherUser, question.id ,value);
+    }
 
     render() {
         const { user, question } = this.props
-        return <Panel key={question.id}>
+        return <Panel key={question.id} style={styles.panel} >
             <div style={styles.titlePanel}>
                 <div className="mui--text-headline">{user.name} ask:</div>
             </div>
@@ -42,7 +45,7 @@ class CardQuestion extends React.Component {
                     </form>
                 </span>
             </div>
-            <Button style={styles.blockButton}> Submit </Button>
+            <Button style={styles.blockButton} onClick={this.handleSubmit} > Submit </Button>
         </Panel>
     }
 }

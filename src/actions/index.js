@@ -27,9 +27,11 @@ const saveQuestion = (question) => ({
     question
 });
 
-const saveAnswer = (autherUser, qid, answer) => ({
+const saveAnswer = (authedUser, qid, answer) => ({
     type: SAVE_ANSWER,
     answer,
+    authedUser,
+    qid
 });
 
 const recieveUsers = (users) => ({
@@ -57,5 +59,20 @@ export const fetchQuestions = () => (dispatch)  => {
 export const fetchUsers = () =>  (dispatch) => {
     _getUsers().then((users) => {
         dispatch(recieveUsers(users));
+    });
+}
+
+export const saveQuestionAnswer = (authedUser, qid, answer) =>  (dispatch) => {
+    _saveQuestionAnswer({authedUser, qid, answer}).then(()=>{
+        dispatch(saveAnswer(authedUser, qid, answer));
+    });
+}
+
+export const createQuestion = ({optionOneText, optionTwoText, author}) => (dispatch) => {
+    return new Promise((res, rej) =>{
+        _saveQuestion({optionOneText, optionTwoText, author}).then((question)=>{
+            dispatch(saveQuestion(question));
+            res()
+        });
     });
 }

@@ -56,6 +56,12 @@ export default {
         gridTemplateColumns: "40% auto",
         padding: "5px"
     },
+    gridCard2 : {
+        display: "flex",
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: "5px"
+    },
     gridBlock : {
         padding: "15px",
     },
@@ -83,5 +89,26 @@ export default {
         maxWidth: '400px',
         width: '100%',
         height: 'auto'
+    },
+    progressBar:{
+       border: "1px solid #15a33b",
+       backgroundColor: '#FFF',
+       width: '100%'
+    },
+    progress: {
+        backgroundColor: "#15a33b",
+        height: '24px'
+    },
+    choiceSelected: {
+        border: "1px solid #187490",
+        backgroundColor: '#CEDBDF'
+    },
+    score: {
+        backgroundColor: "#187490",
+        color: "#FFF",
+        width: "30px",
+        height: '30px',
+        borderRadius: "50%",
+        textAlign: 'center'
     }
 }

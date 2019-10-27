@@ -16,13 +16,13 @@ class Home extends React.Component {
                 <Tab label="Unanswered Questions">
                     <ListQuestion
                         users={users}
-                        questions={typeQuestion("answered", questions, users[userId])}
+                        questions={typeQuestion("unanswered", questions, users[userId])}
                     />
                 </Tab>
                 <Tab label="Answered Questions">
                     <ListQuestion
                         users={users}
-                        questions={typeQuestion("unanswered", questions, users[userId])}
+                        questions={typeQuestion("answered", questions, users[userId])}
                     />
                 </Tab>
             </Tabs>
@@ -34,6 +34,6 @@ const mapStateToProps = (state) => ({
     users: getUsers(state),
     questions: getQuestions(state),
     userId: getAuthor(state)
-})
+});
 
-export default connect(mapStateToProps, undefined)(Home)
+export default connect(mapStateToProps, undefined)(Home);
